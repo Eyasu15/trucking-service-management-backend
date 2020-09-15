@@ -3,9 +3,11 @@ package com.tms.service;
 import org.springframework.mail.MailException;
 import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
+import org.springframework.stereotype.Service;
 
 import com.tms.models.FormReceiver;
 
+@Service
 public class SimpleServiceManager {
 
 	private MailSender mailSender;
@@ -18,6 +20,7 @@ public class SimpleServiceManager {
 	public void setTemplateMessage(SimpleMailMessage templateMessage) {
 		this.templateMessage = templateMessage;
 	}
+	
 	
 	public void sendServiceRequest(FormReceiver receiver) {
 		SimpleMailMessage msg = new SimpleMailMessage(this.templateMessage);
