@@ -13,6 +13,7 @@ public class SimpleServiceManager {
 
 	private MailSender mailSender;
 	private SimpleMailMessage templateMessage;
+	private String email = "eyasuweld@gmail.com";
 
 	public SimpleServiceManager(MailSender mailSender, SimpleMailMessage templateMessage) {
 		super();
@@ -22,7 +23,7 @@ public class SimpleServiceManager {
 
 	public void sendServiceRequest(FormReceiver receiver) {
 		SimpleMailMessage msg = new SimpleMailMessage(this.templateMessage);
-		msg.setTo("eyasuweld@gmail.com");
+		msg.setTo(email);
 		msg.setText("Name: " + receiver.getName() + 
 					"\nPhone: " + receiver.getPhone() + 
 					"\nEmail: " + receiver.getEmail());
@@ -35,6 +36,7 @@ public class SimpleServiceManager {
 	}
 	
 	public void authorityService(FormReceiver receiver) {
-		SimpleMailMessage msg = new SimpleMailMessa
+		SimpleMailMessage msg = new SimpleMailMessage(this.templateMessage);
+		msg.setTo(email);
 	}
 }
