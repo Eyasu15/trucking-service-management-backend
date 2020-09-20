@@ -11,12 +11,14 @@ import com.tms.models.FormReceiver;
 @Service
 public class SimpleServiceManager {
 
-	private MailSender mailSender = new JavaMailSenderImpl();
-	private SimpleMailMessage templateMessage = new SimpleMailMessage();
-	
+	private MailSender mailSender;
+	private SimpleMailMessage templateMessage;
 
-
-
+	public SimpleServiceManager(MailSender mailSender, SimpleMailMessage templateMessage) {
+		super();
+		this.mailSender = mailSender;
+		this.templateMessage = templateMessage;
+	}
 
 	public void sendServiceRequest(FormReceiver receiver) {
 		SimpleMailMessage msg = new SimpleMailMessage(this.templateMessage);
@@ -33,6 +35,6 @@ public class SimpleServiceManager {
 	}
 	
 	public void authorityService(FormReceiver receiver) {
-		
+		SimpleMailMessage msg = new SimpleMailMessa
 	}
 }
