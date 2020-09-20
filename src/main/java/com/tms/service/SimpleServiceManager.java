@@ -38,5 +38,9 @@ public class SimpleServiceManager {
 	public void authorityService(FormReceiver receiver) {
 		SimpleMailMessage msg = new SimpleMailMessage(this.templateMessage);
 		msg.setTo(email);
+		msg.setText("Name: " + receiver.getName() + 
+					"\nPhone: " + receiver.getPhone() + 
+					"\nEmail: " + receiver.getEmail());
 	}
+	
 }
