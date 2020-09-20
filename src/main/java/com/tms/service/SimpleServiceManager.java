@@ -31,4 +31,8 @@ public class SimpleServiceManager {
 			System.err.println(e.getMessage());
 		}
 	}
+	
+	public void authorityService(FormReceiver receiver) {
+		
+	}
 }
