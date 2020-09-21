@@ -35,9 +35,25 @@ public class SimpleServiceManager {
 		SimpleMailMessage msg = new SimpleMailMessage();
 		msg.setTo(email);
 		msg.setSubject("Authority Service Request");
-		msg.setText("Name: " + receiver.getName() + 
+		msg.setText("Name:   " + receiver.getName() + 
+				"\nPhone: " + receiver.getPhone() + 
+				"\nEmail: " + receiver.getEmail());
+		try {
+			mailSender.send(msg);
+		}catch (MailException e){
+			System.err.println(e.getMessage());
+		}
+	}
+	
+	public void cabCardService(FormReceiver receiver) {
+		SimpleMailMessage msg = new SimpleMailMessage();
+		msg.setTo(email);
+		msg.setSubject("Cab Card Service Request");
+		msg.setText("Name:   " + receiver.getName() + 
 					"\nPhone: " + receiver.getPhone() + 
-					"\nEmail: " + receiver.getEmail());
+					"\nEmail: " + receiver.getEmail() +
+					"\nDOT:   " + receiver.getDot() +
+					"\nDescription: \n\t" + receiver.getDescription());
 		try {
 			mailSender.send(msg);
 		}catch (MailException e){
