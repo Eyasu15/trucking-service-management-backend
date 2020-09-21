@@ -3,7 +3,6 @@ package com.tms.service;
 import org.springframework.mail.MailException;
 import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.stereotype.Service;
 
 import com.tms.models.FormReceiver;
@@ -12,17 +11,14 @@ import com.tms.models.FormReceiver;
 public class SimpleServiceManager {
 
 	private MailSender mailSender;
-	private SimpleMailMessage templateMessage;
 	private String email = "eyasuweld@gmail.com";
 
-	public SimpleServiceManager(MailSender mailSender, SimpleMailMessage templateMessage) {
-		super();
+	public SimpleServiceManager(MailSender mailSender) {
 		this.mailSender = mailSender;
-		this.templateMessage = templateMessage;
 	}
 
 	public void sendServiceRequest(FormReceiver receiver) {
-		SimpleMailMessage msg = new SimpleMailMessage(this.templateMessage);
+		SimpleMailMessage msg = new SimpleMailMessage();
 		msg.setTo(email);
 		msg.setText("Name: " + receiver.getName() + 
 					"\nPhone: " + receiver.getPhone() + 
@@ -36,7 +32,7 @@ public class SimpleServiceManager {
 	}
 	
 	public void authorityService(FormReceiver receiver) {
-		SimpleMailMessage msg = new SimpleMailMessage(this.templateMessage);
+		SimpleMailMessage msg = new SimpleMailMessage();
 		msg.setTo(email);
 		msg.setText("Name: " + receiver.getName() + 
 					"\nPhone: " + receiver.getPhone() + 
