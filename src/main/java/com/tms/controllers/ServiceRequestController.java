@@ -25,7 +25,7 @@ public class ServiceRequestController {
 	
 	@PostMapping("/getAuthority")
 	public ResponseEntity<Object> sendMessage(@RequestBody FormReceiver receiver) {
-		service.sendServiceRequest(receiver);
-		return new ResponseEntity<Object>(HttpStatus.ACCEPTED);
+		service.authorityService(receiver);
+		return new ResponseEntity<Object>(HttpStatus.OK);
 	}
 }

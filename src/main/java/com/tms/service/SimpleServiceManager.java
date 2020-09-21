@@ -17,19 +17,19 @@ public class SimpleServiceManager {
 		this.mailSender = mailSender;
 	}
 
-	public void sendServiceRequest(FormReceiver receiver) {
-		SimpleMailMessage msg = new SimpleMailMessage();
-		msg.setTo(email);
-		msg.setText("Name: " + receiver.getName() + 
-					"\nPhone: " + receiver.getPhone() + 
-					"\nEmail: " + receiver.getEmail());
-	
-		try {
-			mailSender.send(msg);
-		}catch (MailException e){
-			System.err.println(e.getMessage());
-		}
-	}
+//	public void sendServiceRequest(FormReceiver receiver) {
+//		SimpleMailMessage msg = new SimpleMailMessage();
+//		msg.setTo(email);
+//		msg.setText("Name: " + receiver.getName() + 
+//					"\nPhone: " + receiver.getPhone() + 
+//					"\nEmail: " + receiver.getEmail());
+//	
+//		try {
+//			mailSender.send(msg);
+//		}catch (MailException e){
+//			System.err.println(e.getMessage());
+//		}
+//	}
 	
 	public void authorityService(FormReceiver receiver) {
 		SimpleMailMessage msg = new SimpleMailMessage();
@@ -61,10 +61,27 @@ public class SimpleServiceManager {
 		}
 	}
 	
-	public void carrierPacket(FormReceiver receiver) {
+	public void carrierPacketService(FormReceiver receiver) {
 		SimpleMailMessage msg = new SimpleMailMessage();
 		msg.setTo(email);
 		msg.setSubject("Carrier Packet Service Request");
+		msg.setText("Name:   " + receiver.getName() + 
+				"\nPhone: " + receiver.getPhone() + 
+				"\nEmail: " + receiver.getEmail() +
+				"\nDOT:   " + receiver.getDot() +
+				"\nDescription: \n\t" + receiver.getDescription());
+		
+		try {
+			mailSender.send(msg);
+		}catch (MailException e){
+			System.err.println(e.getMessage());
+		}
+	}
+	
+	public void dispatchService(FormReceiver receiver) {
+		SimpleMailMessage msg = new SimpleMailMessage();
+		msg.setTo(email);
+		msg.setSubject("Dispatch Service Request");
 		msg.setText("Name:   " + receiver.getName() + 
 				"\nPhone: " + receiver.getPhone() + 
 				"\nEmail: " + receiver.getEmail() +
