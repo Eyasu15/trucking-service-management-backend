@@ -94,4 +94,21 @@ public class SimpleServiceManager {
 			System.err.println(e.getMessage());
 		}
 	}
+	
+	public void form2290Service(FormReceiver receiver) {
+		SimpleMailMessage msg = new SimpleMailMessage();
+		msg.setTo(email);
+		msg.setSubject("Form 2290 Service Request");
+		msg.setText("Name:   " + receiver.getName() + 
+				"\nPhone: " + receiver.getPhone() + 
+				"\nEmail: " + receiver.getEmail() +
+				"\nDOT:   " + receiver.getDot() +
+				"\nDescription: \n\t" + receiver.getDescription());
+		
+		try {
+			mailSender.send(msg);
+		}catch (MailException e){
+			System.err.println(e.getMessage());
+		}
+	}
 }
