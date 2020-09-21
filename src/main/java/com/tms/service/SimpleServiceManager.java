@@ -129,5 +129,21 @@ public class SimpleServiceManager {
 		}
 	}
 	
+	public void ucrRegistrationService(FormReceiver receiver) {
+		SimpleMailMessage msg = new SimpleMailMessage();
+		msg.setTo(email);
+		msg.setSubject("UCR Registration Service Request");
+		msg.setText("Name:   " + receiver.getName() + 
+				"\nPhone: " + receiver.getPhone() + 
+				"\nEmail: " + receiver.getEmail() +
+				"\nDOT:   " + receiver.getDot() +
+				"\nDescription: \n\t" + receiver.getDescription());
+		
+		try {
+			mailSender.send(msg);
+		}catch (MailException e){
+			System.err.println(e.getMessage());
+		}
+	}
 	
 }
