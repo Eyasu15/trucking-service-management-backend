@@ -64,4 +64,5 @@ public class ServiceRequestController {
 		service.ucrRegistrationService(receiver);
 		return new ResponseEntity<Object>(HttpStatus.OK);
 	}
+	
 }

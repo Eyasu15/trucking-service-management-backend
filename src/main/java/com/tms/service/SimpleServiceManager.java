@@ -11,7 +11,7 @@ import com.tms.models.FormReceiver;
 public class SimpleServiceManager {
 
 	private MailSender mailSender;
-	private String email = "eyasuweld@gmail.com";
+	private String email = "garytruckingservices@gmail.com";
 
 	public SimpleServiceManager(MailSender mailSender) {
 		this.mailSender = mailSender;
