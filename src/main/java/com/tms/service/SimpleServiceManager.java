@@ -145,5 +145,4 @@ public class SimpleServiceManager {
 			System.err.println(e.getMessage());
 		}
 	}
-	
 }
